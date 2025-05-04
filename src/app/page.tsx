@@ -1,103 +1,276 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { Footer } from "@/component/Footer";
+import { FaWhatsapp } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const plans = [
+    {
+      name: "Basic",
+      price: "$99/mo",
+      features: ["Up to 5 devices", "Basic support", "Standard security"],
+    },
+    {
+      name: "Standard",
+      price: "$199/mo",
+      features: ["Up to 20 devices", "Priority support", "Advanced security"],
+    },
+    {
+      name: "Premium",
+      price: "$399/mo",
+      features: ["Unlimited devices", "24/7 support", "Enterprise security"],
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="min-h-screen bg-[#121212] text-white">
+      {/* Navigation */}
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-[#1E1E1E] rounded-lg overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="p-6 md:p-8"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Hero Image and Text */}
+            <div className="relative rounded-lg overflow-hidden mb-8">
+              <div className="aspect-[16/9] relative">
+                <Image
+                  src="/image/_ (2).jpeg"
+                  alt="Server Equipment"
+                  width={200}
+                  height={200}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 flex flex-col justify-center p-6 md:p-8 bg-black/40">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                  Network and Cloud Engineering Services
+                </h1>
+                <p className="text-base md:text-lg max-w-2xl">
+                  We provide network and cloud engineering services to help you
+                  build, secure, and scale your infrastructure.
+                </p>
+                <div className="mt-6 md:mt-8">
+                  <Link
+                    href="#"
+                    className="bg-[#4ADE80] hover:bg-[#22c55e] text-black font-medium px-6 py-3 rounded-md inline-block transition-colors"
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Explore Services Button */}
+            <div className="text-center mt-10 mb-10">
+              <Link
+                href="#"
+                className="bg-[#4ADE80] hover:bg-[#22c55e] text-black font-medium px-6 py-3 rounded-md inline-block transition-colors"
+              >
+                Explore our services
+              </Link>
+            </div>
+
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+              {/* Network Architecture and Design */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0 }}
+                className="bg-[#1A1A1A] p-4 rounded-lg border border-gray-800"
+              >
+                <div className="aspect-square relative mb-4 bg-[#f5f5dc] rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/RfEOrbbMwMU?si=6iiAKC9FhB-ill9Z"
+                    title="Network Architecture and Design"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                  />
+                </div>
+                <h3 className="font-medium text-sm">
+                  Network Architecture and Design
+                </h3>
+              </motion.div>
+
+              {/* Cloud Infrastructure Security */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="bg-[#1A1A1A] p-4 rounded-lg border border-gray-800"
+              >
+                <div className="aspect-square relative mb-4 bg-[#e6f0f3] rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/3QhU9jd03a0"
+                    title="Cloud Infrastructure Security"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                  />
+                </div>
+                <h3 className="font-medium text-sm">
+                  Cloud Infrastructure Security
+                </h3>
+              </motion.div>
+
+              {/* Infrastructure Automation */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-[#1A1A1A] p-4 rounded-lg border border-gray-800"
+              >
+                <div className="aspect-square relative mb-4 bg-[#f0f0f0] rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/bEA94yxbt-w?si=Aq00nlDJrqKA0OAr"
+                    title="Cloud Infrastructure Security"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                  />
+                </div>
+                <h3 className="font-medium text-sm">
+                  Infrastructure Automation
+                </h3>
+              </motion.div>
+
+              {/* Networking and Cloud Consulting */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-[#1A1A1A] p-4 rounded-lg border border-gray-800"
+              >
+                <div className="aspect-square relative mb-4 bg-[#f0f0f0] rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.youtube.com/embed/3hLmDS179YE"
+                    title="Networking and Cloud Consulting"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                  />
+                </div>
+                <h3 className="font-medium text-sm">
+                  Networking and Cloud Consulting
+                </h3>
+              </motion.div>
+            </div>
+
+            {/* Stats Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+              {/* Happy Customers */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0 }}
+                className="bg-[#1A1A1A] p-6 rounded-lg border border-gray-800"
+              >
+                <p className="text-sm text-gray-400">100+</p>
+                <h3 className="text-xl font-medium">Happy Customers</h3>
+              </motion.div>
+
+              {/* Years of Experience */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="bg-[#1A1A1A] p-6 rounded-lg border border-gray-800"
+              >
+                <p className="text-sm text-gray-400">10+</p>
+                <h3 className="text-xl font-medium">Years of Experience</h3>
+              </motion.div>
+
+              {/* Projects Completed */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-[#1A1A1A] p-6 rounded-lg border border-gray-800"
+              >
+                <p className="text-sm text-gray-400">500+</p>
+                <h3 className="text-xl font-medium">Projects Completed</h3>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Plans Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Choose Your Plan
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan, idx) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className="bg-[#1A1A1A] rounded-xl border border-gray-800 p-8 text-center shadow-lg flex flex-col justify-between"
+            >
+              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+              <div className="text-3xl font-bold text-[#4ADE80] mb-4">
+                {plan.price}
+              </div>
+              <ul className="mb-6 space-y-2">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="text-gray-300">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`https://wa.me/2347077477604?text=Hi,%20I'm%20interested%20in%20the%20${encodeURIComponent(
+                  plan.name
+                )}%20plan.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#4ADE80] hover:bg-[#22c55e] text-black font-medium px-6 py-3 rounded-md inline-block transition-colors"
+              >
+                Pick Plan
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Floating WhatsApp Button */}
+      <motion.a
+        href="https://wa.me/2347077477604?text=Hi,%20I'm%20interested%20in%20your%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 rounded-full p-4 shadow-lg hover:bg-green-600 transition"
+        aria-label="Chat on WhatsApp"
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+      >
+        <FaWhatsapp className="w-6 h-6 text-white" />
+      </motion.a>
+
+      <Footer />
     </div>
   );
 }
